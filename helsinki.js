@@ -30,29 +30,35 @@ var OrientationHandler = function() {
 	this.update = function(tilt, orientation) {
 		tilt = HELSINKI.round(tilt);
 		this.orientation = 360 - HELSINKI.round(orientation);
-		var tBool = tilt >= 45;
+		var tBool = tilt >= 25;
 		if(this.tilt != tBool) {
 			this.tilt = tBool;
 			this.updateUi();
 			console.log('change view');
 		}
 		if(this.tilt > 0) {
-			var scrollContentWidth = $('#scrollContent').width();
-			var factor = scrollContentWidth / 360;
+			var scrollContentWidth = $('#scrollContentBackground').width();
+			var factor = (scrollContentWidth-1024) / 360;
+			var factorStars = factor / 1.75;
 			var pos = Math.round(this.orientation * factor);
+			var posStars = Math.round(this.orientation * factorStars);
+			var factorElements = ($('#elementsContent').width()-1024) / 360;
+			var posElements = Math.round(this.orientation * factorElements);
 			console.log('pos ' + pos);
-			$('#scrollPane').scrollLeft(pos);
+			$('#scrollPaneBackground').scrollLeft(pos);
+			$('#scrollPaneStars').scrollLeft(posStars);
+			$('#scrollPaneElements').scrollLeft(posElements);
 		}
 	};
 
 	/** switch the UI according to current tilt */
 	this.updateUi = function() {
 		if(this.tilt > 0) {
-			$('#treeSixtyDegree').show();
-			$('#mapView').hide();
+			$('#instructions').hide();
+			$('.elementItem').show();
 		}else{
-			$('#treeSixtyDegree').hide();
-			$('#mapView').show();
+			$('#instructions').show();
+			$('.elementItem').hide();
 		}
 	};
 };

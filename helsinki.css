@@ -1,17 +1,119 @@
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+
 .scrollPane {
-	border: 1px solid red;
 	overflow: scroll;
+	position: relative;
+	width: 1024px;
+}
+
+#scrollPaneBackground {
+	position: absolute;
+	z-index: 100;
+}
+
+#scrollPaneStars {
+	position: absolute;
+	z-index: 200;
+}
+
+#scrollPaneElements {
+	position: absolute;
+	z-index: 300;
 }
 
 .scrollContent {
 	height: 730px;
-	width: 8343px;
+	width: 10000px;
 	background: url("img/background.png") no-repeat;
 	background-position: left bottom;
 }
 
-#mapView {
-	width: 100%;
-	height: 768px;
-	background: url("map.png") no-repeat center;
+.starsContent {
+	height: 730px;
+	width: 10000px;
+	background: url("img/stars.png") no-repeat;
+	background-position: left bottom;
+}
+
+.elementsContent {
+	height: 730px;
+	width: 5500px;
+}
+
+.instructions {
+	width: 1024px;
+	height: 700px;
+	position: absolute;
+	z-index: 1000;
+}
+
+.instructionsBox {
+	position: absolute;
+	width: 200px;
+	left: 412px;
+	top: 50%;
+	background-color: white;
+	-webkit-border-radius:15px; 
+	border-radius:15px;
+	opacity: 0.4;
+}
+
+.instructionsText {
+	left: -50%;
+	top: 50%;
+	text-align: center;
+	font-size: 24pt;
+	margin: 13px;
+	font-family: Helvetica;
+}
+
+.elementItem {
+	background-color: white;
+	-webkit-border-radius:15px; 
+	border-radius:15px;
+	opacity: 0.4;
+	margin: 20px;
+	position: absolute;
+
+	font-family: Helvetica;
+	font-size: 24pt;
+}
+
+#elementHotel {
+	left: 1000px;
+	top: 200px;
+}
+
+#elementAirport {
+	left: 100px;
+	top: 100px;
+}
+
+#elementTrainStation {
+	left: 1400px;
+	top: 500px;
+}
+
+#elementBar {
+	left: 2700px;
+	top: 210px;
+}
+
+#elementTallinnShip {
+	left: 3500px;
+	top: 400px;
+}
+
+#elementTallinnRestaurant {
+	left: 4100px;
+	top: 90px;
+}
+
+#elementTallinHarbor {
+	left: 5000px;
+	top: 400px;
 }
