@@ -6,7 +6,7 @@
 .scrollContent {
 	height: 768px;
 	width: 8343px;
-	background: url("panorama.jpg") no-repeat;
+	background: url("img/background.png") no-repeat;
 	background-position: left bottom;
 }
 
