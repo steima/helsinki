@@ -1,9 +1,34 @@
+/* define splace font */
+@font-face {
+    font-family: circular;
+    src: url("font/CircularStd-Book.otf");
+}
+
+@font-face {
+    font-family: circularItalic;
+    src: url("font/CircularStd-BookItalic.otf");
+}
+
+@font-face {
+    font-family: circularBold;
+    src: url("font/CircularStd-Bold.otf");
+}
+
+@font-face {
+    font-family: circularBoldItalic;
+    src: url("font/CircularStd-BoldItalic.otf");
+}
+
+/* no margins for the demo and splace font as default */
 body {
 	padding: 0px;
 	margin: 0px;
+	font-family: circular;
+	background-color: #000000;
+	height: 100%;
 }
 
-
+/* scrolling panes */
 .scrollPane {
 	overflow: scroll;
 	position: relative;
@@ -15,9 +40,20 @@ body {
 	z-index: 100;
 }
 
-#scrollPaneStars {
+#scrollPaneFlash {
+	position: absolute;
+	z-index: 110;
+	display: none; /* at the beginning this is not show */
+}
+
+#scrollPaneStars1 {
 	position: absolute;
 	z-index: 200;
+}
+
+#scrollPaneStars2 {
+	position: absolute;
+	z-index: 210;
 }
 
 #scrollPaneElements {
@@ -27,23 +63,41 @@ body {
 
 .scrollContent {
 	height: 730px;
-	width: 10000px;
-	background: url("img/background.png") no-repeat;
+	width: 11024px;
+	background: url("img/background.png");
+	background-repeat: repeat-x;
 	background-position: left bottom;
 }
 
-.starsContent {
+.flashContent {
+	height: 730px;
+	width: 11024px;
+	background: url("img/flash.png");
+	background-repeat: repeat-x;
+	background-position: left bottom;
+}
+
+.starsContent1 {
 	height: 730px;
 	width: 10000px;
-	background: url("img/stars.png") no-repeat;
+	background: url("img/stars1.png") no-repeat;
+	background-position: left bottom;
+}
+
+.starsContent2 {
+	height: 730px;
+	width: 10000px;
+	background: url("img/stars2.png") no-repeat;
 	background-position: left bottom;
 }
 
 .elementsContent {
 	height: 730px;
-	width: 5500px;
+	/* width: 5500px; */
+	width: 8000px;
 }
 
+/* box that displays instructions */
 .instructions {
 	width: 1024px;
 	height: 700px;
@@ -56,10 +110,6 @@ body {
 	width: 200px;
 	left: 412px;
 	top: 50%;
-	background-color: white;
-	-webkit-border-radius:15px; 
-	border-radius:15px;
-	opacity: 0.4;
 }
 
 .instructionsText {
@@ -68,52 +118,105 @@ body {
 	text-align: center;
 	font-size: 24pt;
 	margin: 13px;
-	font-family: Helvetica;
+	color: #ffffff;
+	font-family: circular;
 }
 
+/* elements that lead to further content */
 .elementItem {
-	background-color: white;
-	-webkit-border-radius:15px; 
-	border-radius:15px;
-	opacity: 0.4;
 	margin: 20px;
 	position: absolute;
-
-	font-family: Helvetica;
+	font-family: circular;
 	font-size: 24pt;
+	color: #ffffff;
+	display: none; /* display only on lift */
 }
 
-#elementHotel {
+.elementItem .location {
+	background: url("img/flag.png") no-repeat;
+	min-width: 71px;
+	min-height: 57px;
+	font-size: 12pt;
+	padding-left: 38px;
+	white-space: nowrap;
+}
+
+.elementItem .elemTitle {
+	padding-left: 41px;
+	margin-top: -20px;
+	white-space: nowrap;
+}
+
+#elementHanasaarenkatu {
 	left: 1000px;
 	top: 200px;
 }
 
-#elementAirport {
+#elementKeskus2 {
 	left: 100px;
 	top: 100px;
 }
 
-#elementTrainStation {
+#elementSuomenlinna {
 	left: 1400px;
 	top: 500px;
 }
 
-#elementBar {
+#elementViro {
 	left: 2700px;
 	top: 210px;
 }
 
-#elementTallinnShip {
+#elementDocksgatan {
 	left: 3500px;
 	top: 400px;
 }
 
-#elementTallinnRestaurant {
+#elementKeskus {
 	left: 4100px;
 	top: 90px;
 }
 
-#elementTallinHarbor {
+#elementHelsingin {
 	left: 5000px;
 	top: 400px;
+}
+
+#elementPresidentti {
+	left: 6200px;
+	top: 430px;
+}
+
+#elementToolonlahti {
+	left: 7100px;
+	top: 500px;
+}
+
+/* gallery styles */
+.gallery {
+	background-color: #000000;
+	color: #ffffff;
+	display: none; /* gallery is shown only upon user interaction */
+	width: 100%;
+	min-height: 100%;
+}
+
+.gallery .close {
+	width: 1024px;
+	text-align: right;
+	margin-right: 20px;
+	font-size: 20pt;
+}
+
+.gallery .info {
+	width: 1024px;
+	padding-top: 20px;
+	text-align: center;
+}
+
+img.galleryImage {
+	margin-left: auto;
+	margin-right: auto;
+	vertical-align: middle;
+	display: block;
 }
